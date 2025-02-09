@@ -22,8 +22,12 @@ public class LoginTest extends TestBase{
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationform("bazhenovadina321@gmail.com","@12345Ab");
         app.getHelperUser().submitLogin();
-        app.getHelperUser().submitOkButton();
 
+
+
+        Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
+
+        app.getHelperUser().submitOkButton();
         Assert.assertTrue(app.getHelperUser().isLogged());
 
 
