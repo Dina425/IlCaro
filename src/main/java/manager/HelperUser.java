@@ -2,14 +2,17 @@ package manager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HelperUser extends HelperBase {
     public HelperUser(WebDriver wd) {
         super(wd);
     }
     public void openLoginRegistrationForm(){
+       // WebElement element= wd.findElement(By.xpath("/*[@class='navigation-link' and contains(@href,'/login')]"));
 
-        click(By.xpath("/*[@class='navigation-link' and contains(@href,'/login')]"));
+        click(By.xpath("//*[@href='/login?url=%2Fsearch']"));
+        //click(By.xpath("//*[@href='/search']"));
     }
     public void fillLoginRegistrationform(String email, String password) {
 

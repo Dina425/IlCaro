@@ -13,8 +13,8 @@ public class ApplicationManager {
     public void init(){
         wd=new ChromeDriver();
         //wd.manage().window().maximize();
-        wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        wd.navigate().to("https://ilcarro.web.app/");
+        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wd.navigate().to("https://ilcarro.web.app/search");
         helperUser = new HelperUser(wd);
 
     }
