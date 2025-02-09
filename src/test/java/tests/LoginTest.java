@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,6 +23,8 @@ public class LoginTest extends TestBase{
         app.getHelperUser().fillLoginRegistrationform("bazhenovadina321@gmail.com","@12345Ab");
         app.getHelperUser().submitLogin();
         app.getHelperUser().submitOkButton();
+
+        Assert.assertTrue(app.getHelperUser().isLogged());
 
 
 
