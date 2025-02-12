@@ -1,9 +1,7 @@
 package tests;
 
 import models.User;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -51,14 +49,19 @@ public class LoginTest extends TestBase{
     public void loginWrongEmail(){
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationform("bazhenovadina321gmail.com","@12345Ab");
-        Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".error")));
+        //Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".error")));
+        Assert.assertEquals(app.getHelperUser().getErrorText(), "It'snot look like email");
+        Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
 
     }
     @Test
     public void loginEmptyEmail(){
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationform("","@12345Ab");
-        Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".error")));
+        //Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".error")));
+        Assert.assertEquals(app.getHelperUser().getErrorText(), "Email is required");
+        Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
+
 
     }
     @Test
@@ -66,7 +69,8 @@ public class LoginTest extends TestBase{
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationform("bazhenovadina321@gmail.com","@2345A");
         app.getHelperUser().submitLogin();
-        Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".message")));
+        //Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".message")));
+        Assert.assertEquals(app.getHelperUser().getMessage(),"\"Login or Password incorrect\"");
 
     }
     @Test
@@ -74,7 +78,18 @@ public class LoginTest extends TestBase{
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationform("bazhenovadina321@gmail.com","");
         app.getHelperUser().submitLogin();
-        Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".error")));
+        //Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".error")));
+        Assert.assertEquals(app.getHelperUser().getErrorText(), "Password is required");
+        Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
+
+    }
+    @Test
+    public void loginUnregisteredUser(){
+        app.getHelperUser().openLoginRegistrationForm();
+        app.getHelperUser().fillLoginRegistrationform("bazhenovadina31@gmail.com","@12345Ab");
+        app.getHelperUser().submitLogin();
+        //Assert.assertTrue(app.getHelperUser().isElementPresent(By.cssSelector(".error")));
+        Assert.assertEquals(app.getHelperUser().getMessage(),"\"Login or Password incorrect\"");
 
     }
 

@@ -11,39 +11,45 @@ public class HelperUser extends HelperBase {
     public HelperUser(WebDriver wd) {
         super(wd);
     }
-    public void openLoginRegistrationForm(){
-       // WebElement element= wd.findElement(By.xpath("/*[@class='navigation-link' and contains(@href,'/login')]"));
+
+    public void openLoginRegistrationForm() {
+        // WebElement element= wd.findElement(By.xpath("/*[@class='navigation-link' and contains(@href,'/login')]"));
 
         click(By.xpath("//*[@href='/login?url=%2Fsearch']"));
         //click(By.xpath("//*[@href='/search']"));
     }
+
     public void fillLoginRegistrationform(String email, String password) {
 
-        type(By.xpath("//input[@id='email']"),email);
-        type(By.xpath("//input[@id='password']"),password);
+        type(By.xpath("//input[@id='email']"), email);
+        type(By.xpath("//input[@id='password']"), password);
 
     }
+
     public void fillLoginRegistrationform(User user) {
 
         type(By.xpath("//input[@id='email']"), user.getEmail());
-        type(By.xpath("//input[@id='password']"),user.getPassword());
+        type(By.xpath("//input[@id='password']"), user.getPassword());
 
     }
 
-    public void submitLogin(){
+    public void submitLogin() {
         // click(By.xpath("//button[contains(text(),'Y’alla!')]"));
         click(By.xpath("//button[contains(text(),'alla!')]"));
     }
-    public void submitOkButton(){
 
-            if (isElementPresent(By.xpath("//button[text()='Ok']")))
-                click(By.xpath("//button[text()='Ok']"));
+    public void submitOkButton() {
+
+        if (isElementPresent(By.xpath("//button[text()='Ok']")))
+            click(By.xpath("//button[text()='Ok']"));
 
 
     }
+
     public boolean isLogged() {
         return isElementPresent(By.xpath("//*[text()=' Logout ']"));
     }
+
     public void logout() {
         click(By.xpath("//*[text()=' Logout ']"));
     }
@@ -53,5 +59,10 @@ public class HelperUser extends HelperBase {
         pause(2000);
         return wd.findElement(By.cssSelector(".dialog-container>h2")).getText();
 
+
     }
+
+
+
 }
+
