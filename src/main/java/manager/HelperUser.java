@@ -2,6 +2,7 @@ package manager;
 
 import models.User;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -33,7 +34,7 @@ public class HelperUser extends HelperBase {
 
     }
 
-    public void submitLogin() {
+    public void submit() {
         // click(By.xpath("//button[contains(text(),'Y’alla!')]"));
         click(By.xpath("//button[contains(text(),'alla!')]"));
     }
@@ -61,8 +62,28 @@ public class HelperUser extends HelperBase {
 
 
     }
+//Registration****************
 
+    public void openRegistrationForm() {
+        click(By.xpath("//*[text()=' Sign up ']"));
+    }
 
+    public void fillRegistrationForm(User user) {
+        type(By.id("name"), user.getFirstName());
+        type(By.id("lastName"), user.getLastName());
+        type(By.id("email"), user.getEmail());
+        type(By.id("password"), user.getPassword());
 
+    }
+
+    public void checkPolicy() {
+        //click(By.id("terms-of-use"));
+       //click(By.cssSelector("label[for='terms-of-use']"));
+
+        JavascriptExecutor js=(JavascriptExecutor) wd;
+        js.executeScript("document.\n" +
+                "    querySelector('#terms-of-use').click();");
+
+    }
 }
 
