@@ -53,7 +53,7 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
         app.getHelperUser().checkPolicy();
-//        app.getHelperUser().submit();
+        app.getHelperUser().submit();
 
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Wrong email format\n" +
                 "Wrong email format");
@@ -73,7 +73,8 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
         app.getHelperUser().checkPolicy();
-        app.getHelperUser().click(By.id("name"));//crutch??
+
+        app.getHelperUser().submit();
 
 
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Password must contain minimum 8 symbols\n" +
@@ -95,7 +96,8 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
         app.getHelperUser().checkPolicy();
-        app.getHelperUser().click(By.id("name"));//crutch??
+
+        app.getHelperUser().submit();
 
 
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Email is required");
@@ -116,7 +118,8 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
         app.getHelperUser().checkPolicy();
-        app.getHelperUser().click(By.id("name"));//crutch??
+
+        app.getHelperUser().submit();
 
 
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Password is required");
@@ -137,7 +140,8 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
         app.getHelperUser().checkPolicy();
-        app.getHelperUser().click(By.id("name"));//crutch??
+
+        app.getHelperUser().submit();
 
 
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Name is required");
@@ -158,7 +162,8 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
         app.getHelperUser().checkPolicy();
-        app.getHelperUser().click(By.id("name"));//crutch??
+
+        app.getHelperUser().submit();
 
 
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Last name is required");
@@ -179,7 +184,8 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
 
-        app.getHelperUser().click(By.id("name"));//crutch??
+
+        app.getHelperUser().submit();
 
         Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
 
