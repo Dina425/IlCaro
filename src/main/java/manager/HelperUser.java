@@ -85,5 +85,8 @@ public class HelperUser extends HelperBase {
                 "    querySelector('#terms-of-use').click();");
 
     }
+
+
+
 }
 
