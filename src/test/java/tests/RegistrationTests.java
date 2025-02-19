@@ -33,9 +33,9 @@ public class RegistrationTests extends TestBase{
 
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
-        app.getHelperUser().checkPolicy();
+        app.getHelperUser().checkPolicyXY();
         app.getHelperUser().submit();
-        app.getHelperUser().pause(1000);
+        app.getHelperUser().pause(5000);
         Assert.assertEquals(app.getHelperUser().getMessage(),"You are logged in success");
 
     }
@@ -189,6 +189,28 @@ public class RegistrationTests extends TestBase{
 
         Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
 
+    }
+    @Test
+    public void registrationExistUser() {
+        Random randome = new Random();
+        int i = randome.nextInt(1000);
+        System.out.println(i);
+
+        System.out.println(System.currentTimeMillis());
+        int z = (int) ((System.currentTimeMillis() / 1000) % 3600);
+        System.out.println(z);
+        User user = new User()
+                .setFirstName("Liza")
+                .setLastName("Snow")
+                .setEmail("bazhenovadina321@gmail.com")
+                .setPassword("@12345Ab");
+
+        app.getHelperUser().openRegistrationForm();
+        app.getHelperUser().fillRegistrationForm(user);
+        app.getHelperUser().checkPolicy();
+        app.getHelperUser().submit();
+        app.getHelperUser().pause(3000);
+        Assert.assertEquals(app.getHelperUser().getMessage(), "\"User already exists\"");
     }
 
     @AfterMethod
