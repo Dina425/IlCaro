@@ -2,6 +2,8 @@ package tests;
 
 import models.Car;
 import models.User;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -32,7 +34,14 @@ public void addNewCarSuccess(){
     app.getHelperCar().openCarForm();
     app.getHelperCar().fillCarForm(car);
     app.getHelperCar().submitCarForm();
+    Assert.assertTrue(app.getHelperUser().getMessage().contains("added successful"));
+    Assert.assertTrue(app.getHelperUser().getMessage().contains(car.getModel()));
+    Assert.assertTrue(app.getHelperUser().getMessage().contains(car.getManufacture()));
 
+}
+@AfterClass
+    public void postCondition(){
+        app.getHelperCar().submitSearchCars();
 }
 
 }

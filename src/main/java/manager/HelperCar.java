@@ -11,8 +11,8 @@ public class HelperCar extends HelperBase {
     }
 
     public void openCarForm() {
-        pause(100);
-        click(By.xpath("//a[text()='Let the car work ']"));
+        pause(500);
+        click(By.xpath("//a[text()=' Let the car work ']"));
     }
 
     public void fillCarForm(Car car) {
@@ -22,6 +22,11 @@ public class HelperCar extends HelperBase {
         type(By.id("year"), car.getYear());
         select(By.id("fuel"),car.getFuel());
         type(By.id("seats"),String.valueOf(car.getSeats()));
+        type(By.id("class"),car.getCarClass());
+        type(By.id("serialNumber"),car.getCarRegNumber());
+        type(By.id("price"),String.valueOf(car.getPrice()));
+        type(By.id("about"), car.getAbout());
+
     }
 
     private void select(By locator, String option) {
@@ -35,5 +40,10 @@ public class HelperCar extends HelperBase {
     }
 
     public void submitCarForm() {
+        click(By.cssSelector("button[type='submit']"));
+    }
+
+    public void submitSearchCars() {
+        click(By.cssSelector(".neutral-button.ng-star-inserted"));
     }
 }

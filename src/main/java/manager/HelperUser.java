@@ -32,7 +32,7 @@ public class HelperUser extends HelperBase {
 
     }
 
-    public void submit() {
+    public void submitYalla() {
         // click(By.xpath("//button[contains(text(),'Y’alla!')]"));
         click(By.xpath("//button[contains(text(),'alla!')]"));
     }
@@ -103,7 +103,7 @@ public class HelperUser extends HelperBase {
     public void login(User user) {
         openLoginRegistrationForm();
         fillLoginRegistrationform(user);
-        submit();
+        submitYalla();
         submitOkButton();
 
     }
