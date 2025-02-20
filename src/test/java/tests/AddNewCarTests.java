@@ -19,6 +19,7 @@ public class AddNewCarTests extends TestBase {
 @Test
 public void addNewCarSuccess(){
     int i = (int)((System.currentTimeMillis()/1000)%3600);
+
     Car car= Car.builder()
             .location("Tel Aviv, Israel")
             .manufacture("Mazda")
