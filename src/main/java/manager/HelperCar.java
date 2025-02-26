@@ -24,7 +24,7 @@ public class HelperCar extends HelperBase {
         type(By.id("seats"),String.valueOf(car.getSeats()));
         type(By.id("class"),car.getCarClass());
         type(By.id("serialNumber"),car.getCarRegNumber());
-        type(By.id("price"),String.valueOf(car.getPrice()));
+        type(By.id("price"),car.getPrice()+"");//konkotination
         type(By.id("about"), car.getAbout());
 
     }
@@ -39,11 +39,14 @@ public class HelperCar extends HelperBase {
         click(By.cssSelector("div.pac-item"));
     }
 
-    public void submitCarForm() {
-        click(By.cssSelector("button[type='submit']"));
-    }
+
 
     public void submitSearchCars() {
-        click(By.cssSelector(".neutral-button.ng-star-inserted"));
+        click(By.xpath("//button[text()='Search cars']"));
+    }
+
+    public void attachPhoto(String link) {
+        wd.findElement(By.id("photos")).sendKeys(link);
+
     }
 }

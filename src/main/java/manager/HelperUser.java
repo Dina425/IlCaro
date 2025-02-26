@@ -32,10 +32,7 @@ public class HelperUser extends HelperBase {
 
     }
 
-    public void submitYalla() {
-        // click(By.xpath("//button[contains(text(),'Y’alla!')]"));
-        click(By.xpath("//button[contains(text(),'alla!')]"));
-    }
+
 
     public void submitOkButton() {
 
@@ -54,12 +51,7 @@ public class HelperUser extends HelperBase {
     }
 
 
-    public String getMessage() {
-        pause(2000);
-        return wd.findElement(By.cssSelector(".dialog-container>h2")).getText();
 
-
-    }
 //Registration****************
 
     public void openRegistrationForm() {
@@ -103,7 +95,7 @@ public class HelperUser extends HelperBase {
     public void login(User user) {
         openLoginRegistrationForm();
         fillLoginRegistrationform(user);
-        submitYalla();
+        submit();
         submitOkButton();
 
     }

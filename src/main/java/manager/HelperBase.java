@@ -52,6 +52,15 @@ public class HelperBase {
         boolean result = element.isEnabled();
         return res;//return result
     }
+    public void submit() {
+        click(By.cssSelector("button[type='submit']"));
+    }
+    public String getMessage() {
+        pause(2000);
+        return wd.findElement(By.cssSelector(".dialog-container>h2")).getText();
+
+
+    }
 
 
 }
