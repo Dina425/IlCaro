@@ -15,6 +15,7 @@ public class ApplicationManager {
 
     public void init(){
         wd=new ChromeDriver();
+
         Logger logger= LoggerFactory.getLogger(ApplicationManager.class);
         logger.info("All tests run in Chrome Browser");
         //wd.manage().window().maximize();
