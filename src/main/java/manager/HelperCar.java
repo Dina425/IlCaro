@@ -151,4 +151,8 @@ public class HelperCar extends HelperBase {
 
 
     }
+
+    public void logoSubmit() {
+        click(By.xpath("(//a[@class='logo'])"));
+    }
 }
