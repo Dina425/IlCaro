@@ -1,13 +1,13 @@
 package tests;
 
 import models.User;
-import org.openqa.selenium.By;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.sql.SQLOutput;
+
 import java.util.Random;
 
 public class RegistrationTests extends TestBase{
@@ -86,8 +86,6 @@ public class RegistrationTests extends TestBase{
     @Test
     public void registrationEmptyEmail(){
         Random randome=new Random();
-        int i=randome.nextInt(1000);
-
         User user=new User()
                 .setFirstName("Liza")
                 .setLastName("Snow")
@@ -99,9 +97,7 @@ public class RegistrationTests extends TestBase{
 
         app.getHelperUser().submit();
 
-
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Email is required");
-
         Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
 
     }
@@ -121,9 +117,7 @@ public class RegistrationTests extends TestBase{
 
         app.getHelperUser().submit();
 
-
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Password is required");
-
         Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
 
     }
@@ -140,12 +134,9 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().openRegistrationForm();
         app.getHelperUser().fillRegistrationForm(user);
         app.getHelperUser().checkPolicy();
-
         app.getHelperUser().submit();
 
-
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Name is required");
-
         Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
 
     }
@@ -165,9 +156,7 @@ public class RegistrationTests extends TestBase{
 
         app.getHelperUser().submit();
 
-
         Assert.assertEquals(app.getHelperUser().getErrorText(), "Last name is required");
-
         Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
 
     }

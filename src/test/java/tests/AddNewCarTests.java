@@ -4,7 +4,7 @@ import models.Car;
 import models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -13,7 +13,7 @@ public class AddNewCarTests extends TestBase {
     @BeforeClass
     public void preCondition(){
         if(!app.getHelperUser().isLogged())
-            app.getHelperUser().login(new User().setEmail("bazhenovadina321@gmail.com").setPassword("@12345Ab"));
+            app.getHelperUser().login(new User().setEmail("sonicboom@gmail.com").setPassword("Snow123456!"));
     }
 
 
@@ -38,9 +38,6 @@ public void addNewCarSuccess(){
     app.getHelperCar().fillCarForm(car);
     app.getHelperCar().attachPhoto("/Users/dinabazenova/Documents/GitHub/IlCaro/foto-bugatti-veyron_10-650x433.jpg");
     app.getHelperCar().submit();
-//    Assert.assertTrue(app.getHelperCar().getMessage().contains("added successful"));
-//    Assert.assertTrue(app.getHelperCar().getMessage().contains(car.getModel()));
-//    Assert.assertTrue(app.getHelperCar().getMessage().contains(car.getManufacture()));
     Assert.assertEquals(app.getHelperCar().getMessage(), car.getManufacture()+" "+car.getModel()+" added successful");
 
 
@@ -64,9 +61,6 @@ public void addNewCarSuccess(){
         app.getHelperCar().openCarForm();
         app.getHelperCar().fillCarForm(car);
         app.getHelperCar().submit();
-//    Assert.assertTrue(app.getHelperCar().getMessage().contains("added successful"));
-//    Assert.assertTrue(app.getHelperCar().getMessage().contains(car.getModel()));
-//    Assert.assertTrue(app.getHelperCar().getMessage().contains(car.getManufacture()));
         Assert.assertEquals(app.getHelperCar().getMessage(), car.getManufacture()+" "+car.getModel()+" added successful");
 
 
