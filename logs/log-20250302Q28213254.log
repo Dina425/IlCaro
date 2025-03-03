@@ -1,0 +1,32 @@
+21:32:57.207 INFO  manager.ApplicationManager - All tests run in Chrome Browser
+21:32:58.399 INFO  manager.ApplicationManager - The link--->https://ilcarro.web.app/search
+21:33:04.832 INFO  tests.TestBase - Name of method ---> addNewCarSuccess
+21:33:09.032 INFO  tests.TestBase - Name of method ---> addNewCarSuccessPartly
+21:33:12.700 INFO  tests.TestBase - Name of method ---> loginEmptyEmail
+21:33:12.868 INFO  tests.TestBase - Before method finished logout
+21:33:18.187 INFO  tests.TestBase - Name of method ---> loginEmptyPassword
+21:33:23.215 INFO  tests.TestBase - Before method finished logout
+21:33:29.541 INFO  tests.TestBase - Name of method ---> loginSuccess
+21:33:34.556 INFO  tests.TestBase - Before method finished logout
+21:33:34.557 INFO  tests.TestBase - Start test with name loginSuccess
+21:33:34.817 INFO  tests.TestBase - Test data--> email:sonicboom@gmail.com & password:Snow123456!
+21:33:36.899 INFO  tests.TestBase - Name of method ---> loginSuccessMon
+21:33:36.938 INFO  tests.TestBase - Before method finished logout
+21:33:40.301 INFO  tests.TestBase - Name of method ---> loginUnregisteredUser
+21:33:40.337 INFO  tests.TestBase - Before method finished logout
+21:33:48.718 INFO  tests.TestBase - Name of method ---> loginWrongEmail
+21:33:53.752 INFO  tests.TestBase - Before method finished logout
+21:33:59.058 INFO  tests.TestBase - Name of method ---> loginWrongPassword
+21:34:04.110 INFO  tests.TestBase - Before method finished logout
+21:34:06.466 INFO  tests.TestBase - Name of method ---> registrationEmptyCheckBox
+21:34:16.941 INFO  tests.TestBase - Name of method ---> registrationEmptyEmail
+21:34:27.506 INFO  tests.TestBase - Name of method ---> registrationEmptyFName
+21:34:38.030 INFO  tests.TestBase - Name of method ---> registrationEmptyLName
+21:34:48.548 INFO  tests.TestBase - Name of method ---> registrationEmptyPassword
+21:34:59.028 INFO  tests.TestBase - Name of method ---> registrationExistUser
+21:35:09.582 INFO  tests.TestBase - Name of method ---> registrationSuccess
+21:35:18.164 INFO  tests.TestBase - Name of method ---> registrationWrongEmail
+21:35:24.690 INFO  tests.TestBase - Name of method ---> registrationWrongPassword
+21:35:35.197 INFO  tests.TestBase - Name of method ---> searchAnyperiod
+21:35:37.061 INFO  tests.TestBase - Name of method ---> searchCurrentMonthSuccess
+21:35:38.173 INFO  tests.TestBase - Name of method ---> searchCurrentYearSuccess
