@@ -1,12 +1,12 @@
 package manager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class HelperBase {
@@ -62,6 +62,28 @@ public class HelperBase {
         pause(2000);
         return wd.findElement(By.cssSelector(".dialog-container>h2")).getText();
 
+
+    }
+    public void getScreen(String link) {
+        TakesScreenshot takesScreenshot = (TakesScreenshot) wd;
+        File tmp = takesScreenshot.getScreenshotAs(OutputType.FILE);
+        try {
+            Files.copy(tmp, new File(link));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void clearTextBox(By locator){
+        WebElement element= wd.findElement(locator);
+        String os=System.getProperty("os.name");
+        System.out.println(os);
+        if(os.startsWith("Win")){
+            element.sendKeys(Keys.CONTROL,"a");
+        }else
+            element.sendKeys(Keys.COMMAND,"a");
+
+
+        element.sendKeys(Keys.DELETE);
 
     }
 

@@ -3,6 +3,7 @@ package manager;
 import models.Car;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
@@ -56,6 +57,7 @@ public class HelperCar extends HelperBase {
 
     public void searchCurrentMonth(String city, String dataFrom, String dataTo) {
         typeCity(city);
+        clearTextBox(By.id("dates"));
         click(By.id("dates"));
 
         String[] from=dataFrom.split("/");
@@ -81,6 +83,7 @@ public class HelperCar extends HelperBase {
 
     public void searchCurrentYear(String city, String dataFrom, String dataTo) {
         typeCity(city);
+        clearTextBox(By.id("dates"));
         click(By.id("dates"));
 
         LocalDate now=LocalDate.now();
@@ -94,6 +97,8 @@ public class HelperCar extends HelperBase {
         int diffMonthNowFrom=from.getMonthValue()-now.getMonthValue();
         if (diffMonthNowFrom>0)
             clickNextMonthButton(diffMonthNowFrom);
+//        String locator= String.format("//div[text()= ' $s ']",to.getDayOfMonth());
+//        click(By.xpath(locator));
         click(By.xpath("//div[text()=' "+from.getDayOfMonth()+" ']"));
 
         int diffMonthFromTo=to.getMonthValue()-from.getMonthValue();
@@ -110,6 +115,7 @@ public class HelperCar extends HelperBase {
     }
 
     public void searchAnyPeriod(String city, String dataFrom, String dataTo) {
+        clearTextBox(By.id("dates"));
         LocalDate now=LocalDate.now();
         LocalDate from=LocalDate.parse(dataFrom, DateTimeFormatter.ofPattern("M/d/yyyy"));
         LocalDate to=LocalDate.parse(dataTo, DateTimeFormatter.ofPattern("M/d/yyyy"));
@@ -155,4 +161,6 @@ public class HelperCar extends HelperBase {
     public void logoSubmit() {
         click(By.xpath("(//a[@class='logo'])"));
     }
+
+
 }
