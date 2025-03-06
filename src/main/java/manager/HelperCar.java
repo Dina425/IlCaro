@@ -2,6 +2,7 @@ package manager;
 
 import models.Car;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -158,9 +159,33 @@ public class HelperCar extends HelperBase {
 
     }
 
+
+
+
+    public void searchWithInputPeriod(String city, String period) {
+        typeCity(city);
+        clearTextBox(By.id("dates"));
+        WebElement input= wd.findElement(By.xpath("//input[@id='dates']"));
+        type(By.xpath("//input[@id='dates']"),period);
+        wd.findElement(By.className("cdk-overlay-container")).click();
+
+    }
+
     public void logoSubmit() {
-        click(By.xpath("(//a[@class='logo'])"));
+
+        click(By.xpath("//a[@class='logo']"));
     }
 
 
+    public void searchWithInputPeriodEmptyCity(String city, String period) {
+
+        WebElement cityInput= wd.findElement(By.id("city"));
+        cityInput.sendKeys(city);
+        cityInput.sendKeys(Keys.DELETE);
+        clearTextBox(By.id("dates"));
+        WebElement input= wd.findElement(By.xpath("//input[@id='dates']"));
+        type(By.xpath("//input[@id='dates']"),period);
+        wd.findElement(By.className("cdk-overlay-container")).click();
+
+    }
 }

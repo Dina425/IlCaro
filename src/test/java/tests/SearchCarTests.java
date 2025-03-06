@@ -28,7 +28,7 @@ public class SearchCarTests extends TestBase{
         Assert.assertTrue(app.getHelperCar().isListOfCarAppeared());
     }
     @Test
-    public void searchAnyperiod(){
+    public void searchAnyPeriod(){
         app.getHelperCar().searchAnyPeriod("Rehovot","3/10/2025","1/27/2026");
         app.getHelperCar().getScreen("src/test/screenshots/currentAny.png");
         app.getHelperCar().submit();
@@ -37,4 +37,25 @@ public class SearchCarTests extends TestBase{
 
 
     }
+    @Test
+    public void searchCarInputPeriodNegative(){
+        String period="1/27/2026-3/10/2025";
+        app.getHelperCar().searchWithInputPeriod("Rehovot",period);
+        app.getHelperCar().getScreen("src/test/screenshots/input.png");
+
+        Assert.assertEquals(app.getHelperCar().getErrorText(),"Second date must be after first date\n" +
+                "You can't book car for less than a day");
+
+    }
+    @Test
+    public void searchCarEmptyDate(){
+        app.getHelperCar().searchWithInputPeriod("Rehovot","");
+        Assert.assertEquals(app.getHelperCar().getErrorText(),"Dates are required");
+    }
+    @Test
+    public void searchCarEmptyCity(){
+        app.getHelperCar().searchWithInputPeriodEmptyCity("","4/27/2025-1/1/2026");
+        Assert.assertEquals(app.getHelperCar().getErrorText(),"City is required");
+    }
+
 }
