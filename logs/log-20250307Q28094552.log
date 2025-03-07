@@ -1,0 +1,14 @@
+09:45:54.909 INFO  manager.ApplicationManager - All tests run in Chrome Browser
+09:45:56.922 INFO  manager.ApplicationManager - The link--->https://ilcarro.web.app/search
+09:45:56.946 INFO  tests.TestBase - Name of method ---> loginSuccess
+09:46:01.959 INFO  tests.TestBase - Before method finished logout
+09:46:01.960 INFO  tests.TestBase - Start test with name loginSuccess
+09:46:04.331 INFO  tests.TestBase - Test data--> email:sonicboom@gmail.com & password:Snow123456!
+09:46:06.410 INFO  tests.TestBase - Name of method ---> loginSuccess
+09:46:06.452 INFO  tests.TestBase - Before method finished logout
+09:46:06.452 INFO  tests.TestBase - Start test with name loginSuccess
+09:46:08.775 INFO  tests.TestBase - Test data--> email:sonicboom@gmail.com & password:Snow123456!
+09:46:10.819 INFO  tests.TestBase - Name of method ---> loginSuccess
+09:46:10.861 INFO  tests.TestBase - Before method finished logout
+09:46:10.861 INFO  tests.TestBase - Start test with name loginSuccess
+09:46:13.143 INFO  tests.TestBase - Test data--> email:sonicboom@gmail.com & password:Snow123456!

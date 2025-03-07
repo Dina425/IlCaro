@@ -1,5 +1,6 @@
 package tests;
 
+import manager.DataProviderUser;
 
 import models.User;
 
@@ -18,28 +19,32 @@ public class LoginTest extends TestBase{
         logger.info("Before method finished logout");
     }
 
-    @Test
-    public void loginSuccess(){
+    @Test(dataProvider = "loginData",dataProviderClass = DataProviderUser.class)
+    public void loginSuccess(String email,String password){
         logger.info("Start test with name loginSuccess");
+        app.getHelperUser().pause(1000);
         app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationform("sonicboom@gmail.com","Snow123456!");
+        //app.getHelperUser().fillLoginRegistrationform("sonicboom@gmail.com","Snow123456!");
+        app.getHelperUser().fillLoginRegistrationform(email, password);
         app.getHelperUser().submit();
+        app.getHelperUser().pause(1000);
         logger.info("Test data--> email:sonicboom@gmail.com & password:Snow123456!");
 
       Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
 
 
     }
-    @Test
-    public void loginSuccessMon(){
-        User user = new User();
-        user.setEmail("sonicboom@gmail.com").setPassword("Snow123456!");
+    @Test(dataProvider = "loginModel",dataProviderClass = DataProviderUser.class)
+    public void loginSuccessMon(User user){
+//        User user = new User();
+//        user.setEmail("sonicboom@gmail.com").setPassword("Snow123456!");
         app.getHelperUser().pause(1000);
 
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationform(user);
 
         app.getHelperUser().submit();
+        app.getHelperUser().pause(1000);
 
         Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
 
