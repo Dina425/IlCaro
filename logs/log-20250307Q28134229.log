@@ -1,0 +1,8 @@
+13:42:31.586 INFO  manager.ApplicationManager - All tests run in Chrome Browser
+13:42:33.661 INFO  manager.ApplicationManager - The link--->https://ilcarro.web.app/search
+13:42:33.682 INFO  tests.TestBase - Name of method ---> searchAnyPeriod
+13:42:36.420 INFO  tests.TestBase - Name of method ---> searchCarEmptyCity
+13:42:44.896 INFO  tests.TestBase - Name of method ---> searchCarEmptyDate
+13:42:46.708 INFO  tests.TestBase - Name of method ---> searchCarInputPeriodNegative
+13:42:48.699 INFO  tests.TestBase - Name of method ---> searchCurrentMonthSuccess
+13:42:50.111 INFO  tests.TestBase - Name of method ---> searchCurrentYearSuccess

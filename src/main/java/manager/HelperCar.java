@@ -178,14 +178,44 @@ public class HelperCar extends HelperBase {
 
 
     public void searchWithInputPeriodEmptyCity(String city, String period) {
-
-        WebElement cityInput= wd.findElement(By.id("city"));
-        cityInput.sendKeys(city);
-        cityInput.sendKeys(Keys.DELETE);
+        clearTextBox(By.id("city"));
+        //WebElement cityInput= wd.findElement(By.id("city"));
+        pause(2000);
         clearTextBox(By.id("dates"));
         WebElement input= wd.findElement(By.xpath("//input[@id='dates']"));
         type(By.xpath("//input[@id='dates']"),period);
         wd.findElement(By.className("cdk-overlay-container")).click();
 
+    }
+
+    public void fillCarFormWrong(Car car) {
+        type(By.id("pickUpPlace"), car.getLocation());
+        click(By.cssSelector("div.pac-item"));
+        type(By.id("make"),car.getManufacture());
+        type(By.id("model"),car.getModel());
+        type(By.id("year"), car.getYear());
+        select(By.id("fuel"),car.getFuel());
+        type(By.id("seats"),String.valueOf(car.getSeats()));
+        type(By.id("class"),car.getCarClass());
+        type(By.id("serialNumber"),car.getCarRegNumber());
+        type(By.id("price"),car.getPrice()+"");//konkotination
+        type(By.id("about"), car.getAbout());
+
+    }
+
+    public void fillCarFormWrongFuel(Car car) {
+        type(By.id("pickUpPlace"), car.getLocation());
+        click(By.cssSelector("div.pac-item"));
+        type(By.id("make"),car.getManufacture());
+        type(By.id("model"),car.getModel());
+
+        //select(By.id("fuel"),car.getFuel());
+        wd.findElement(By.id("fuel")).click();
+        type(By.id("year"), car.getYear());
+        type(By.id("seats"),String.valueOf(car.getSeats()));
+        type(By.id("class"),car.getCarClass());
+        type(By.id("serialNumber"),car.getCarRegNumber());
+        type(By.id("price"),car.getPrice()+"");//konkotination
+        type(By.id("about"), car.getAbout());
     }
 }

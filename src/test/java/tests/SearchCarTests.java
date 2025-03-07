@@ -39,6 +39,7 @@ public class SearchCarTests extends TestBase{
     }
     @Test
     public void searchCarInputPeriodNegative(){
+        app.getHelperCar().pause(1000);
         String period="1/27/2026-3/10/2025";
         app.getHelperCar().searchWithInputPeriod("Rehovot",period);
         app.getHelperCar().getScreen("src/test/screenshots/input.png");
@@ -49,12 +50,15 @@ public class SearchCarTests extends TestBase{
     }
     @Test
     public void searchCarEmptyDate(){
+        app.getHelperCar().pause(1000);
         app.getHelperCar().searchWithInputPeriod("Rehovot","");
         Assert.assertEquals(app.getHelperCar().getErrorText(),"Dates are required");
     }
     @Test
     public void searchCarEmptyCity(){
+        app.getHelperCar().pause(1000);
         app.getHelperCar().searchWithInputPeriodEmptyCity("","4/27/2025-1/1/2026");
+        app.getHelperCar().submit();
         Assert.assertEquals(app.getHelperCar().getErrorText(),"City is required");
     }
 

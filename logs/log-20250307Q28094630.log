@@ -1,8 +1,0 @@
-09:46:32.541 INFO  manager.ApplicationManager - All tests run in Chrome Browser
-09:46:35.730 INFO  manager.ApplicationManager - The link--->https://ilcarro.web.app/search
-09:46:35.757 INFO  tests.TestBase - Name of method ---> loginSuccessMon
-09:46:40.823 INFO  tests.TestBase - Before method finished logout
-09:46:45.282 INFO  tests.TestBase - Name of method ---> loginSuccessMon
-09:46:45.328 INFO  tests.TestBase - Before method finished logout
-09:46:49.801 INFO  tests.TestBase - Name of method ---> loginSuccessMon
-09:46:49.837 INFO  tests.TestBase - Before method finished logout
