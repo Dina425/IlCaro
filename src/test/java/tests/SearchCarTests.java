@@ -61,5 +61,13 @@ public class SearchCarTests extends TestBase{
         app.getHelperCar().submit();
         Assert.assertEquals(app.getHelperCar().getErrorText(),"City is required");
     }
+    @Test
+    public void negativeSearch(){
+        app.getHelperCar().searchNotValidPeriod("Rehovot","10/10/2025","14/27/2026");
+        app.getHelperCar().submit();
+        Assert.assertTrue(app.getHelperUser().isYallaButtonActive());
+        Assert.assertEquals(app.getHelperCar().getErrorText(),"Dates are required");
+
+    }
 
 }

@@ -218,4 +218,12 @@ public class HelperCar extends HelperBase {
         type(By.id("price"),car.getPrice()+"");//konkotination
         type(By.id("about"), car.getAbout());
     }
+
+    public void searchNotValidPeriod(String city, String dataFrom, String dataTo) {
+        typeCity(city);
+        clearTextBox(By.id("dates"));
+        type(By.id("dates"),dataFrom+" - "+dataTo);
+        wd.findElement(By.className("cdk-overlay-container")).click();
+
+    }
 }
